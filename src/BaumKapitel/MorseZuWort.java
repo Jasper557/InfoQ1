@@ -39,6 +39,10 @@ public class MorseZuWort {
         System.out.println("Morsecode: " + morsecode);
         System.out.println("Klartext: " + text);
     }
+
+    private static void countLayers(){
+
+    }
 }
 
 
