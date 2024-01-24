@@ -2,6 +2,8 @@ package BaumKapitel;
 
 import BaumKapitel.baum.BinaryTree;
 
+import java.sql.SQLOutput;
+
 public class Morsebaum {
     private final BinaryTree<String> root;
 
@@ -58,12 +60,27 @@ public class Morsebaum {
         }
     }
 
+    private int summe(BinaryTree<String> pBaum){
+        if(pBaum.isEmpty()){
+            return -1;
+        }else{
+            int summeWurzel = Integer.parseInt(pBaum.getContent());
+            int leftSum = summe(pBaum.getLeftTree());
+            int rightSum = summe(pBaum.getRightTree());
+
+            return summeWurzel + leftSum + rightSum;
+
+        }
+    }
+
     public static void main(String[] args) {
         Morsebaum morsebaum = new Morsebaum();
         BinaryTree<String> root = morsebaum.getRoot();
 
         int layers = morsebaum.countLayers(root);
+        int summe = morsebaum.summe(root);
         System.out.println("Ebenen: " + layers);
+        System.out.println("Summe: " + summe);
     }
 
 
